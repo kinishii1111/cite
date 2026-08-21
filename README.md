@@ -34,8 +34,8 @@ flowchart TD
 
 ```bash
 pip install -e .
-cp .env.example .env # configurar GROQ_API_KEY
-# Embeddings: CITE_EMBED=default (ONNX local) ou CITE_EMBED=hf (VM/HuggingFace)
+cp .env.example .env   # GROQ_API_KEY=
+# Embeddings: CITE_EMBED=default (ONNX local) ou CITE_EMBED=hf (VM / sentence-transformers)
 ```
 
 ## CLI
@@ -45,9 +45,9 @@ cp .env.example .env # configurar GROQ_API_KEY
 python -m cite ingest
 
 # 2. Fazer perguntas
-python -m cite ask "Qual a política de reembolso para cursos?"
-python -m cite ask "Qual o CNPJ da KinSolo?"
-python -m cite ask "O que é RAG?" # skip_retrieve
+python -m cite ask "Qual o prazo de reembolso e onde isso está escrito?"
+python -m cite ask "Qual o CNPJ da Receita Federal?"
+python -m cite ask "O que é RAG?"   # skip_retrieve
 
 # 3. Rodar avaliação
 python -m cite eval
@@ -55,10 +55,10 @@ python -m cite eval
 
 ## Demo (4 comandos)
 
-1. `python -m cite ask "Como funciona o reembolso de cursos?"` → Recupera handbook, valida docs, cita seção.
-2. `python -m cite ask "Qual o CNPJ da KinSolo?"` → Recupera dados cadastrais com grounding estrito.
-3. `python -m cite ask "O que é RAG?"` → Roteamento ativa `skip_retrieve` e responde direto.
-4. `python -m cite eval` → Executa benchmark sobre o dataset golden.
+1. `python -m cite ask "Qual o prazo de reembolso e onde isso está escrito?"` → cita `docs/reembolso.md` (7 dias úteis).
+2. `python -m cite ask "Qual o CNPJ da Receita Federal?"` → **recusa** (fora da base; não inventa).
+3. `python -m cite ask "O que é RAG?"` → `skip_retrieve`, responde direto.
+4. `python -m cite eval` → golden ≥6 casos, threshold ≥70% (última corrida: 6/6).
 
 ## Corpus
 
