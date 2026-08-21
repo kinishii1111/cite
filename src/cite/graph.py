@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph, START, END
-from langgraph.checkpoint.memory import MemorySaver
 
+from cite.memory import get_checkpointer
 from cite.state import CiteState
 from cite.route import route
 from cite.retrieve import retrieve
@@ -40,4 +40,4 @@ def build_graph():
     builder.add_edge("generate", "ground")
     builder.add_edge("ground", END)
 
-    return builder.compile(checkpointer=MemorySaver())
+    return builder.compile(checkpointer=get_checkpointer())
