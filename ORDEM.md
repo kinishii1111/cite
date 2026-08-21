@@ -1,7 +1,7 @@
 # ORDEM — tarefa/c8-examples
 
 ## Agente
-grok
+opencode
 
 ## Objetivo
 `examples/demo.md` — 5 comandos demo do brief (citação, recusa, vaga, conceito, thread). Só markdown.
