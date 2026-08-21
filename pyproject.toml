@@ -9,6 +9,7 @@ description = "Agentic/Corrective RAG — LangGraph + Chroma"
 requires-python = ">=3.10"
 dependencies = [
   "langgraph",
+  "langgraph-checkpoint-sqlite",
   "langchain",
   "langchain-groq",
   "chromadb",
