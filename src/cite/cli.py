@@ -58,6 +58,9 @@ def main() -> None:
     )
     generation = result.get("generation", "")
     print(generation)
+    skip_retrieve = result.get("skip_retrieve")
+    rewrite_count = result.get("rewrite_count")
+    print(f"trace: skip_retrieve={skip_retrieve} rewrite_count={rewrite_count}", file=sys.stderr)
 
 
 if __name__ == "__main__":
