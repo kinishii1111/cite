@@ -40,6 +40,7 @@ def run_eval() -> int:
     total = len(cases)
     score = passed / total
     print(f"\n{passed}/{total} pass ({(score * 100):.0f}%)")
+    print(f"SCORE: {passed}/{total} ({score * 100:.0f}%)")
     return 0 if score >= THRESHOLD else 1
 
 

@@ -28,5 +28,15 @@
     "id": "c6",
     "question": "Qual o telefone do presidente do Brasil?",
     "expect": "refuse"
+  },
+  {
+    "id": "c7",
+    "question": "Qual o prazo de reembolso?",
+    "expect": "cite"
+  },
+  {
+    "id": "c8",
+    "question": "O que é LangGraph?",
+    "expect": "skip_retrieve"
   }
 ]
