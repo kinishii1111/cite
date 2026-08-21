@@ -20,17 +20,21 @@ def build_graph():
     builder.add_node("generate", generate)
     builder.add_node("ground", ground)
 
-    builder.add_edge(START, "route")
-    builder.add_edge("route", "retrieve")
-    builder.add_edge("retrieve", "grade_docs")
+    def after_route(state: CiteState) -> str:
+        return "generate" if state.get("skip_retrieve") else "retrieve"
 
-    def route_after_grade(state: CiteState) -> str:
+    def after_grade(state: CiteState) -> str:
         if state.get("documents"):
             return "generate"
-        return "rewrite"
+        return "rewrite" if state.get("rewrite_count", 0) < 2 else "generate"
 
+    builder.add_edge(START, "route")
     builder.add_conditional_edges(
-        "grade_docs", route_after_grade, {"generate": "generate", "rewrite": "rewrite"}
+        "route", after_route, {"generate": "generate", "retrieve": "retrieve"}
+    )
+    builder.add_edge("retrieve", "grade_docs")
+    builder.add_conditional_edges(
+        "grade_docs", after_grade, {"generate": "generate", "rewrite": "rewrite"}
     )
     builder.add_edge("rewrite", "retrieve")
     builder.add_edge("generate", "ground")

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "c1",
+    "question": "Qual o prazo de reembolso e onde isso está escrito?",
+    "expect": "cite"
+  },
+  {
+    "id": "c2",
+    "question": "Qual o CNPJ da Receita Federal?",
+    "expect": "refuse"
+  },
+  {
+    "id": "c3",
+    "question": "O que é RAG?",
+    "expect": "skip_retrieve"
+  },
+  {
+    "id": "c4",
+    "question": "Qual o prazo de devolução do projeto?",
+    "expect": "cite"
+  },
+  {
+    "id": "c5",
+    "question": "Qual a política de segurança da plataforma?",
+    "expect": "cite"
+  },
+  {
+    "id": "c6",
+    "question": "Qual o telefone do presidente do Brasil?",
+    "expect": "refuse"
+  }
+]
