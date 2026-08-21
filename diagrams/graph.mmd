@@ -1,0 +1,11 @@
+flowchart TD
+    START([START]) --> route[route]
+    route -->|skip_retrieve| generate[generate]
+    route -->|retrieve| retrieve[retrieve]
+    retrieve --> grade_docs[grade_docs]
+    grade_docs -->|docs ok| generate
+    grade_docs -->|sem docs & rewrite_count < 2| rewrite[rewrite]
+    grade_docs -->|sem docs & rewrite_count >= 2| generate
+    rewrite --> retrieve
+    generate --> ground[ground]
+    ground --> END([END])
