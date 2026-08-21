@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cite"
+version = "0.1.0"
+description = "Agentic/Corrective RAG — LangGraph + Chroma"
+requires-python = ">=3.10"
+dependencies = [
+  "langgraph",
+  "langchain",
+  "langchain-groq",
+  "langchain-chroma",
+  "chromadb",
+  "langchain-huggingface",
+  "sentence-transformers",
+  "python-dotenv",
+]
+
+[project.scripts]
+cite = "cite.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cite"]
