@@ -58,7 +58,7 @@ python -m cite eval
 1. `python -m cite ask "Qual o prazo de reembolso e onde isso está escrito?"` → cita `docs/reembolso.md` (7 dias úteis).
 2. `python -m cite ask "Qual o CNPJ da Receita Federal?"` → **recusa** (fora da base; não inventa).
 3. `python -m cite ask "O que é RAG?"` → `skip_retrieve`, responde direto.
-4. `python -m cite eval` → golden ≥6 casos, threshold ≥70% (última corrida: 6/6).
+4. `python -m cite eval` → golden **8** casos, threshold ≥70% (imprime `SCORE: X/Y`).
 
 ## Corpus
 
@@ -66,7 +66,8 @@ O corpus em `docs/` é o **KinSolo Handbook**, um conjunto de documentos sintét
 
 ## Avaliação (Eval)
 
-- Dataset: `eval/golden.json` (≥ 6 casos de teste).
+- Dataset: `eval/golden.json` (**8** casos).
+- Runner imprime `SCORE: X/Y (Z%)`; threshold ≥ 70%.
 - Métrica: Threshold de acurácia/qualidade de ≥ 70% nos critérios de recuperação e resposta.
 
 ## Fora de escopo
