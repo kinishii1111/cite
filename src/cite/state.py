@@ -9,3 +9,4 @@ class CiteState(TypedDict, total=False):
     documents: list[str]
     rewrite_count: int
     generation: str
+    skip_retrieve: bool

@@ -4,7 +4,7 @@
 opencode
 
 ## Objetivo
-Ingestão Chroma dos docs/ + retrieve real. Embeddings locais (HuggingFace MiniLM / sentence-transformers). Sem nós LLM ainda.
+Ingestão Chroma dos docs/ + retrieve real. Embeddings: default Chroma ONNX (leve). VM: CITE_EMBED=hf (sentence-transformers). Sem nós LLM ainda.
 
 ## Copiar de
 - docs/ já na main

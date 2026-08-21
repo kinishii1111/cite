@@ -11,12 +11,17 @@ dependencies = [
   "langgraph",
   "langchain",
   "langchain-groq",
-  "langchain-chroma",
   "chromadb",
-  "langchain-huggingface",
-  "sentence-transformers",
   "python-dotenv",
 ]
+
+[project.optional-dependencies]
+hf = [
+  "sentence-transformers",
+  "langchain-huggingface",
+  "langchain-chroma",
+]
+
 
 [project.scripts]
 cite = "cite.cli:main"
